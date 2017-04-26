@@ -1,0 +1,20 @@
+<div ng-controller="CreateController">
+	<div ng-if="messages">
+		{{messages}}
+	</div>
+	<a href='#!/dashboard'>Cancel</a><br>
+	<h2>Put the question and options here: </h2>
+	<form ng-submit="create()">
+		<label>Question: </label>
+		<input type="text" ng-model="newpoll.question"><br>
+		<label>Option 1: </label>
+		<input type="text" ng-model="newpoll.option1"><br>
+		<label>Option 2: </label>
+		<input type="text" ng-model="newpoll.option2"><br>
+		<label>Option 3: </label>
+		<input type="text" ng-model="newpoll.option3"><br>
+		<label>Option 4: </label>
+		<input type="text" ng-model="newpoll.option4"><br>
+		<input type="submit" value="Create Poll">
+	</form>
+</div>

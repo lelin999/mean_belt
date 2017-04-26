@@ -1,0 +1,22 @@
+<div ng-controller="DashboardController">
+	<a href='#!/create'>Create a New Poll</a>
+	<a href='#!/' ng-click='logout()'>Logout</a><br>
+
+	<h2>Current Polls:</h2>
+	
+	<input type="text" ng-model="searchBar" placeholder="Search">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Survey Question</th>
+			<th>Date Posted</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat="poll in polls | filter: searchBar">
+			<td>{{poll.name}}</td>
+			<td><a href='#!/poll/{{poll._id}}'>{{poll.question}}</a></td>
+			<th>{{poll.createdAt | date: yyyy/mm/dd}}</th>
+			<th ng-show="user === poll.name"><button ng-click="delete(poll._id)">Delete</button></th>
+		</tr>
+	</table>
+</div>

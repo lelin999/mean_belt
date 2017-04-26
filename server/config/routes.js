@@ -1,21 +1,33 @@
-var <OBJECTCONTROLLER> = require('../controllers/OBJECTS.js');
+var polls = require('../controllers/polls.js');
 
 module.exports = function(app){
 	//index: Showing collection
-	app.get('/<OBJECT>', function(req, res) {
-		<OBJECTCONTROLLER>.index(req, res);
+	app.get('/polls', function(req, res) {
+		polls.index(req, res);
+	});
+	app.get('/polls/:id', function(req, res) {
+		polls.show(req, res);
 	});
 	//create: creating into db
-	app.post('/<OBJECT>', function(req, res) {
-		<OBJECTCONTROLLER>.create(req, res);
+	app.post('/polls', function(req, res) {
+		polls.create(req, res);
 	});
 	//for editing, PUT/POST functionality basically equivalent
-	app.put('/<OBJECT>/:id', function(req, res) {
-		<OBJECTCONTROLLER>.update(req, res);
+	app.put('/polls/upvote1/:id', function(req, res) {
+		polls.upvote1(req, res);
+	});
+	app.put('/polls/upvote2/:id', function(req, res) {
+		polls.upvote2(req, res);
+	});
+	app.put('/polls/upvote3/:id', function(req, res) {
+		polls.upvote3(req, res);
+	});
+	app.put('/polls/upvote4/:id', function(req, res) {
+		polls.upvote4(req, res);
 	});
 	//deleting
-	app.delete('/<OBJECT>/:id', function(req, res) {
-		<OBJECTCONTROLLER>.delete(req, res);
+	app.delete('/polls/:id', function(req, res) {
+		polls.delete(req, res);
 	});
 	
 };
